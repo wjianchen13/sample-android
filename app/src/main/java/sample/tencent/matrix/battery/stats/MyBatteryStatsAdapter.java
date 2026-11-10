@@ -9,7 +9,7 @@ import com.tencent.matrix.batterycanary.stats.ui.BatteryStatsAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import sample.tencent.matrix.R;
+import com.tencent.matrix.batterycanary.R;
 
 /**
  * @author Kaede

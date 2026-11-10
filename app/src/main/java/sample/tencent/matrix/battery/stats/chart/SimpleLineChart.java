@@ -24,7 +24,7 @@ import java.util.Set;
 
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
-import sample.tencent.matrix.R;
+import com.tencent.matrix.batterycanary.R;
 
 public class SimpleLineChart extends View {
     public static final int MODE_ONE = 1;

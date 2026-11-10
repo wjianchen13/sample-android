@@ -105,7 +105,7 @@ class TestFgService : Service() {
             .setPriority(Notification.PRIORITY_DEFAULT)
             .setStyle(Notification.BigTextStyle().bigText(TAG))
             .setAutoCancel(true)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(android.R.drawable.stat_notify_more)
             .setWhen(System.currentTimeMillis())
 
         val notification = builder.build()

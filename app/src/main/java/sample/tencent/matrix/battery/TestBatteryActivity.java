@@ -317,14 +317,16 @@ public class TestBatteryActivity extends Activity {
 
         Intent intent = new Intent(this, TestBatteryActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        int pendingIntentFlags = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M
+                ? PendingIntent.FLAG_IMMUTABLE : 0;
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, pendingIntentFlags);
 
         Notification notification = new NotificationCompat.Builder(this, channelId)
                 .setContentTitle("NOTIFICATION_TILE")
                 .setContentText(tryGetAppRunningNotificationText())
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
-                .setSmallIcon(com.tencent.matrix.batterycanary.R.drawable.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setWhen(System.currentTimeMillis())
                 .build();
 
