@@ -55,6 +55,11 @@ public class TestTraceMainActivity extends Activity implements IAppForeground {
         IssueFilter.setCurrentFilter(IssueFilter.ISSUE_TRACE);
 
         Plugin plugin = Matrix.with().getPluginByClass(TracePlugin.class);
+        if (plugin == null) {
+            Toast.makeText(this, "TracePlugin is not registered", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
         if (!plugin.isPluginStarted()) {
             MatrixLog.i(TAG, "plugin-trace start");
             plugin.start();
@@ -88,7 +93,7 @@ public class TestTraceMainActivity extends Activity implements IAppForeground {
     protected void onDestroy() {
         super.onDestroy();
         Plugin plugin = Matrix.with().getPluginByClass(TracePlugin.class);
-        if (plugin.isPluginStarted()) {
+        if (plugin != null && plugin.isPluginStarted()) {
             MatrixLog.i(TAG, "plugin-trace stop");
             plugin.stop();
         }
